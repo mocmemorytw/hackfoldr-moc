@@ -437,10 +437,10 @@ var compile_json = function(rows){
       return true;
     } else if(link_url.match(/^.*.github.com\//)) {
       return true;
-    } else if(link_url.match(/^.*drive.google.com\/(?!.*\/preview$)/)) {
-      return true;
-      } else if(link_url.match(/^.*drive.google.com\/embeddedfolderview?id=.*/)) {
-      return false;    
+    } // else if(link_url.match(/^.*drive.google.com\/(?!.*\/preview$)/)) {
+      // return true;
+      // } else if(link_url.match(/^.*drive.google.com\/embeddedfolderview?id=.*/)) {
+      // return false;    
     } else if(link_url.match(/^.*.facebook.com\//)) {
       return true;
     } else if(link_url.match(/^.*.trello.com\//)) {
