@@ -22,7 +22,7 @@ if(ethercalc_name.length < 40){
   csv_api_source = 'https://ethercalc.org/_/'+ethercalc_name+'/csv';
   csv_api_source_type = "ethercalc";
 }else{
-  csv_api_source = './list.csv';
+  csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+ethercalc_name+'&exportFormat=csv&gid=0';
   csv_api_source_type = "google";
   // because posting to gsheet is hard to implement, we don't offer submit feature when using gsheet. since it's easy to moderate editing in gsheet, you can just let users edit or comment on it.
   $("#topbar .add.to.list, #topbar .submit.segment").remove();
@@ -74,7 +74,7 @@ var compile_json = function(rows){
   // jump from ethercalc to google spreadsheet when A1 is filled with a gsheet id
   if(csv_api_source_type == "ethercalc" && !rows[0][0].match(/^#/) && rows[0][0].length >= 40){
     // reset all related variables and compile again
-    csv_api_source = './list.csv';
+    csv_api_source = 'docs.google.com/feeds/download/spreadsheets/Export?key='+rows[0][0]+'&exportFormat=csv&gid=0';
     csv_api_source_type = "google";
     csv_api_source_id = rows[0][0].trim();
     // remember? we don't support submit forms with gsheet. so need to remove the + button as well as the form segment.
